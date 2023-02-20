@@ -13,7 +13,7 @@ const ItemSchema = new Schema({
     type: String,
     required: true,
     minLength: 3,
-    maxLength: 100,
+    maxLength: 1000,
   },
   cost: {
     type: Number,
@@ -26,6 +26,12 @@ const ItemSchema = new Schema({
     required: true,
     minLength: 0,
     maxLength: 10000,
+  },
+  reviews: {
+    type: Number,
+    required: false,
+    minLength: 0,
+    maxLength: 1,
   },
   category: [
     {

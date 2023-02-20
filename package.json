@@ -9,6 +9,7 @@
     "lintejs": "ejslint"
   },
   "dependencies": {
+    "async": "^3.2.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
