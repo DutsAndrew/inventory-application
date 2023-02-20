@@ -61,28 +61,6 @@ function itemCreate(name, description, cost, amount, reviews, category, cb) {
   }  );
 }
 
-
-function itemInstanceCreate(item, status, cb) {
-  itemInstanceDetail = { 
-    item: item,
-    status: status,
-  }
-
-  if (status != false) itemInstanceDetail.status = status
-    
-  const itemInstance = new ItemInstance(itemInstanceDetail);    
-  itemInstance.save(function (err) {
-    if (err) {
-      console.log('ERROR CREATING itemInstance: ' + itemInstance);
-      cb(err, null)
-      return
-    }
-    console.log('New ItemInstance: ' + itemInstance);
-    itemInstances.push(itemInstance)
-    cb(null, itemInstance)
-  }  );
-}
-
 function createCategories(cb) {
   async.series([
       function(callback) {
@@ -131,40 +109,10 @@ function createItems(cb) {
 }
 
 
-function createItemInstances(cb) {
-    async.parallel([
-        function(callback) {
-          itemInstanceCreate(items[0], 'Available', callback);
-        },
-        function(callback) {
-          itemInstanceCreate(items[1], 'Maintenance', callback);
-        },
-        function(callback) {
-          itemInstanceCreate(items[2], 'Sold Out', callback);
-        },
-        function(callback) {
-          itemInstanceCreate(items[3], 'Not in Stock', callback);
-        },
-        function(callback) {
-          itemInstanceCreate(items[4], 'No Longer Carried', callback);
-        },
-        function(callback) {
-          itemInstanceCreate(items[5], 'Available', callback);
-        },
-        function(callback) {
-          itemInstanceCreate(items[6], 'Available', callback);
-        },
-        ],
-        // Optional callback
-        cb);
-}
-
-
 
 async.series([
     createCategories,
     createItems,
-    createItemInstances,
 ],
 // Optional callback
 function(err, results) {
