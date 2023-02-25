@@ -4,9 +4,7 @@ const router = express.Router();
 const category_controller = require("../controllers/categoryController");
 const item_controller = require("../controllers/itemController");
 
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', category_controller.index);
 
 /// GET AND POST requests for item controller ///
 
@@ -36,6 +34,6 @@ router.post('/category/:id/update', category_controller.category_update_post);
 
 router.get('/category/:id', category_controller.category_detail);
 
-router.get('/categories', category_controller.category_list);
+router.get('/category/items', category_controller.category_list);
 
 module.exports = router;
