@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/inventory">
+      <button class="return-to-main-btn" href="">
+        Return To Main
+      </button>
+    </a>
+    <h1><%= title %></h1>
+    
+    <div class="item-container">
+      <h2>
+        <%= item.name %>
+      </h2>
+      <div class="item-details-container">
+        <p>
+          $<%= item.cost %>
+        </p>
+        <p>
+          <em><%= item.description %></em>
+        </p>
+        <p>
+          <strong>Amount:</strong> <%= item.amount %>
+        </p>
+      </div>
+      <a href="<%= item.url %>">
+        View Item
+      </a>
+    </div>
+
+    <hr>
+    <p>
+      <a href="<%= item.url + '/delete' %>">Delete Item</a>
+    </p>
+    <p>
+      <a href="<%= item.url + '/update' %>">Update Item</a>
+    </p>
+  </body>
+</html>

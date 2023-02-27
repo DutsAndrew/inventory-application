@@ -15,8 +15,20 @@ exports.item_list = (req, res, next) => {
     });
 };
 
-exports.item_detail = (req, res) => {
-  res.send('Not Implemented');
+exports.item_detail = (req, res, next) => {
+  Item.findById(req.params.id)
+    .populate("name")
+    .populate("description")
+    .populate("cost")
+    .populate("amount")
+    .populate("category")
+    .exec(function (err, item) {
+      if (err) return next(err);
+      res.render("item_detail", {
+        title: "Item View",
+        item: item,
+      });
+    });
 };
 
 exports.item_create_get = (req, res) => {
