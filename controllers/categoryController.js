@@ -36,12 +36,31 @@ exports.index = (req, res, next) => {
   );
 };
 
-exports.category_list = (req, res, next) => {
-  
-};
-
-exports.category_detail = (req, res) => {
-  res.send('Not Implemented');
+exports.category_detail = (req, res, next) => {
+  async.parallel(
+    {
+      items(callback) {
+        Item.find({ category: req.params.id})
+          .sort({ name: 1 })
+          .populate("name")
+          .populate("description")
+          .populate("cost")
+          .populate("amount")
+          .exec(callback);
+      },
+      category(callback) {
+        Category.findById(req.params.id)
+          .exec(callback);
+      },
+    },
+    (err, results) => {
+      if (err) return next(err);
+      res.render("item_list", {
+        title: results.category.name,
+        items: results.items,
+      });
+    }
+  );
 };
 
 exports.category_create_get = (req, res) => {

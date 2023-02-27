@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/inventory">
+      <button class="return-to-main-btn" href="">
+        Return To Main
+      </button>
+    </a>
+    <h1><%= title %></h1>
+    
+    <div class="items-container">
+      <% if (items) { %>
+        <% items.forEach((item) => { %>
+          <h2>
+            <%= item.name %>
+          </h2>
+          <div class="item-container">
+            <p>
+              $<%= item.cost %>
+            </p>
+            <p>
+              <em><%= item.description %></em>
+            </p>
+            <p>
+              <strong>Amount:</strong> <%= item.amount %>
+            </p>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>
+          There are no items of this category type :(
+        </p>
+      <% }; %>
+    </div>
+  </body>
+</html>
