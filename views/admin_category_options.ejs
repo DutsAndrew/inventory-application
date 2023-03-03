@@ -24,8 +24,12 @@
           <h2>
             <%= category.name %>
           </h2>
-          <button>Update</button>
-          <button>Delete</button>
+          <a href="<%= category.url + '/update' %>">
+            <button>Update</button>
+          </a>
+          <a href="<%= category.url + '/delete' %>">
+            <button>Delete</button>
+          </a>
         <hr>
       <% }); %>
     <% } else { %>

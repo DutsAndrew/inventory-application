@@ -109,12 +109,25 @@ exports.category_create_post = [
   }
 ];
 
-exports.category_delete_get = (req, res) => {
-  res.send('Not Implemented');
+exports.category_delete_get = (req, res, next) => {
+  Category.findById(req.params.id)
+    .exec((err, category) => {
+      if (err) return next(err);
+      res.render("category_delete", {
+        title: "Delete Category",
+        category: category,
+      });
+    });
 };
 
 exports.category_delete_post = (req, res) => {
-  res.send('Not Implemented');
+  body("categoryid", "oops")
+    .escape(),
+
+  Category.findByIdAndRemove(req.body.categoryid, (err) => {
+    if (err) return next(err);
+    res.redirect("/inventory/category/admin/options")
+  });
 };
 
 exports.category_update_get = (req, res) => {
