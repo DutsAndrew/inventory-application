@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/inventory">
+      <button class="return-to-main-btn" href="">
+        Return To Main
+      </button>
+    </a>
+    <h1><%= title %></h1>
+    
+    <h2>
+      Admin access granted
+    </h2>
+
+    <hr>
+
+    <% if (items) { %>
+      <% items.forEach((item) => { %>
+        <div class="category-container">
+          <h2>
+            <%= item.name %>
+          </h2>
+          <ul>
+            <li>
+              <strong>Description: </strong><%= item.description %>
+            </li>
+            <li>
+              <strong>Amount: </strong><%= item.amount %>
+            </li>
+            <li>
+              <strong>Quantity: </strong><%= item.quantity %>
+            </li>
+            <li>
+              <strong>Price: </strong><%= item.price %>
+            </li>
+          </ul>
+          <button>Update</button>
+          <button>Delete</button>
+        <hr>
+      <% }); %>
+    <% } else { %>
+      <p>
+        There are no categories of this category type :(
+      </p>
+    <% }; %>
+  </body>
+</html>

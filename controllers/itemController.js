@@ -20,10 +20,7 @@ exports.item_detail = (req, res, next) => {
     // Fetch the item by ID and populate its fields
     (callback) => {
       Item.findById(req.params.id)
-        .populate("name")
-        .populate("description")
-        .populate("cost")
-        .populate("amount")
+        .populate("category")
         .exec((err, item) => {
           if (err) return callback(err);
           callback(null, item);
@@ -45,6 +42,18 @@ exports.item_detail = (req, res, next) => {
       category: category,
     });
   });
+};
+
+exports.item_admin_options_list = (req, res, next) => {
+  Item.find()
+    .sort({ name: 1 })
+    .exec(function (err, item_list) {
+      if (err) return next(err);
+      res.render("admin_item_options", {
+        title: "All Items in Inventory",
+        items: item_list,
+      });
+    });
 };
 
 exports.item_create_get = (req, res) => {

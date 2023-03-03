@@ -21,6 +21,7 @@ router.get('/item/:id', item_controller.item_detail);
 
 router.get('/items', item_controller.item_list);
 
+
 /// GET AND POST requests for category controller ///
 
 router.get('/category/create', category_controller.category_create_get);
@@ -33,5 +34,10 @@ router.get('/category/:id/update', category_controller.category_update_get);
 router.post('/category/:id/update', category_controller.category_update_post);
 
 router.get('/category/:id', category_controller.category_detail);
+
+/// ADMIN OPTIONS ///
+
+router.get('/item/admin/options', item_controller.item_admin_options_list);
+router.get('/category/admin/options', category_controller.category_admin_options_list);
 
 module.exports = router;

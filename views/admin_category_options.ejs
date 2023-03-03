@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/inventory">
+      <button class="return-to-main-btn" href="">
+        Return To Main
+      </button>
+    </a>
+    <h1><%= title %></h1>
+    
+    <h2>
+      Admin access granted
+    </h2>
+
+    <hr>
+
+    <% if (categories) { %>
+      <% categories.forEach((category) => { %>
+        <div class="category-container">
+          <h2>
+            <%= category.name %>
+          </h2>
+          <button>Update</button>
+          <button>Delete</button>
+        <hr>
+      <% }); %>
+    <% } else { %>
+      <p>
+        There are no categories of this category type :(
+      </p>
+    <% }; %>
+  </body>
+</html>

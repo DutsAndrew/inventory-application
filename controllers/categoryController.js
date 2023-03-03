@@ -16,7 +16,6 @@ exports.index = (req, res, next) => {
       category_list(callback) {
         Category.find({})
           .sort({ name: 1 })
-          .populate("name")
           .exec(callback);
       },
     },
@@ -42,10 +41,6 @@ exports.category_detail = (req, res, next) => {
       items(callback) {
         Item.find({ category: req.params.id})
           .sort({ name: 1 })
-          .populate("name")
-          .populate("description")
-          .populate("cost")
-          .populate("amount")
           .exec(callback);
       },
       category(callback) {
@@ -61,6 +56,18 @@ exports.category_detail = (req, res, next) => {
       });
     }
   );
+};
+
+exports.category_admin_options_list = (req, res, next) => {
+  Category.find()
+    .sort({ name: 1 })
+    .exec((err, results) => {
+      if (err) return next(err);
+      res.render("admin_category_options", {
+        title: "Categories Admin Access",
+        categories: results,
+      });
+    });
 };
 
 exports.category_create_get = (req, res) => {
