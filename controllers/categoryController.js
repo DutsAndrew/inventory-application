@@ -70,13 +70,44 @@ exports.category_admin_options_list = (req, res, next) => {
     });
 };
 
-exports.category_create_get = (req, res) => {
-  res.send('Not Implemented');
+exports.category_create_get = (req, res, next) => {
+  res.render("category_form", { title: "Create Category"});
 };
 
-exports.category_create_post = (req, res) => {
-  res.send('Not Implemented');
-};
+exports.category_create_post = [
+  body("name", "Category name required")
+    .trim()
+    .isLength({ min: 1 })
+    .escape()
+    .isAlphanumeric()
+    .withMessage("Categories cannot be in non-alphanumeric characters."),
+  (req, res, next) => {
+    const errors = validationResult(req),
+          category = new Category({ name: req.body.name });
+
+    if (!errors.isEmpty()) {
+      res.render("category_form", {
+        title: "Create Category",
+        category,
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      Category.findOne({ name: req.body.name })
+        .exec((err, found_category) => {
+          if (err) return next(err);
+          if (found_category) {
+            res.redirect(found_category.url);
+          } else {
+            category.save((err) => {
+              if (err) return next(err);
+              res.redirect(category.url);
+            });
+          }
+        });
+    };
+  }
+];
 
 exports.category_delete_get = (req, res) => {
   res.send('Not Implemented');

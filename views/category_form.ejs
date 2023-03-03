@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/inventory">
+      <button class="return-to-main-btn" href="">
+        Return To Main
+      </button>
+    </a>
+
+    <h1><%= title %></h1>
+
+    <form method="POST" action="">
+      <div class="form-group">
+        <label for="name">
+          Category:
+        </label>
+        <input 
+          id="form-control" 
+          type="text" 
+          placeholder="Beans, Roasts, Espresso, etc"
+          name="name"
+          required >
+      </div>
+      <button class="btn, btn-primary" type="submit">
+        Submit
+      </button>
+    </form>
+
+    <% if (typeof(errors) !== "undefined") { %>
+      <ul>
+        <% errors.forEach((error) => { %>
+          <li>
+            error.msg
+          </li>
+        <% }); %>
+      </ul>
+    <% }; %>
+
+  </body>
+</html>
