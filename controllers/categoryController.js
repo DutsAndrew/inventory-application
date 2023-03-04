@@ -169,4 +169,4 @@ exports.category_update_post = [
       });
     };
   }
-]
+];

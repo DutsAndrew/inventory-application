@@ -28,7 +28,7 @@
           placeholder="Beans, Roasts, Espresso, etc"
           name="name"
           required
-          value="<% typeof(item) === 'undefined' ? '' : item.name %>"
+          value="<%= typeof(item) === 'undefined' ? '' : item.name %>"
         >
       </div>
 
@@ -57,7 +57,7 @@
           placeholder="105"
           name="quantity"
           required
-          value="<% typeof(item) === 'undefined' ? '' : item.quantity %>"
+          value="<%= typeof(item) === 'undefined' ? '' : item.quantity %>"
         >
       </div>
 
@@ -71,7 +71,7 @@
           placeholder="19.99"
           name="cost"
           required
-          value="<% typeof(item) === 'undefined' ? '' : item.cost %>"
+          value="<%= typeof(item) === 'undefined' ? '' : item.cost %>"
         >
       </div>
 
