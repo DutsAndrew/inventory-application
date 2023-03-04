@@ -37,12 +37,12 @@ function categoryCreate(name, cb) {
   }   );
 }
 
-function itemCreate(name, description, cost, amount, reviews, category, cb) {
+function itemCreate(name, description, cost, quantity, reviews, category, cb) {
   itemDetail = { 
     name: name,
     description: description,
     cost: cost,
-    amount: amount,
+    quantity: quantity,
     reviews: reviews,
     category: category,
   }

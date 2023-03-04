@@ -19,14 +19,14 @@
     <form method="POST" action="">
       <div class="form-group">
        <h2>Are you sure you want to delete:</h2>
-       <h3><%= category.name %>?</h3>
+       <h3><%= item.name %>?</h3>
       </div>
       <input
-        id="categoryid"
+        id="itemid"
         type="hidden"
-        name="categoryid"
+        name="itemid"
         required
-        value="<%= category._id %>"
+        value="<%= item._id %>"
       >
       <button class="btn, btn-primary" type="submit">
         Yes, please delete this atrocity

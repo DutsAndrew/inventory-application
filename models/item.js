@@ -21,7 +21,7 @@ const ItemSchema = new Schema({
     minLength: 1,
     maxLength: 10000,
   },
-  amount: {
+  quantity: {
     type: Number,
     required: true,
     minLength: 0,

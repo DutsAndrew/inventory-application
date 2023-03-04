@@ -79,8 +79,8 @@ exports.category_create_post = [
     .trim()
     .isLength({ min: 1 })
     .escape()
-    .isAlphanumeric()
-    .withMessage("Categories cannot be in non-alphanumeric characters."),
+    .isAlpha()
+    .withMessage("Categories cannot be in non-alpha characters."),
   (req, res, next) => {
     const errors = validationResult(req),
           category = new Category({ name: req.body.name });
@@ -126,7 +126,7 @@ exports.category_delete_post = (req, res) => {
 
   Category.findByIdAndRemove(req.body.categoryid, (err) => {
     if (err) return next(err);
-    res.redirect("/inventory/category/admin/options")
+    res.redirect("/inventory/category/admin/options");
   });
 };
 
