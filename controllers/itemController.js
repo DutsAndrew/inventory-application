@@ -155,7 +155,7 @@ exports.item_delete_post = (req, res) => {
   body("itemid", "oops")
     .escape(),
 
-  Category.findByIdAndRemove(req.body.itemid, (err) => {
+  Item.findByIdAndRemove(req.body.itemid, (err) => {
     if (err) return next(err);
     res.redirect("/inventory/item/admin/options");
   });
