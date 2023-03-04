@@ -130,10 +130,43 @@ exports.category_delete_post = (req, res) => {
   });
 };
 
-exports.category_update_get = (req, res) => {
-  res.send('Not Implemented');
+exports.category_update_get = (req, res, next) => {
+  Category.findById(req.params.id)
+    .exec((err, category) => {
+      if (err) return next(err);
+      res.render("category_form", {
+         title: "Update Category",
+         category: category,
+      });
+    });
 };
 
-exports.category_update_post = (req, res) => {
-  res.send('Not Implemented');
-};
+exports.category_update_post = [
+
+  body("name", "Category name required")
+    .trim()
+    .isLength({ min: 1 })
+    .escape()
+    .isAlpha()
+    .withMessage("Categories cannot be in non-alpha characters."),
+
+  (req, res, next) => {
+    const errors = validationResult(req),
+          category = new Category({
+            name: req.body.name,
+            _id: req.params.id,
+          });
+    
+    if (!errors.isEmpty()) {
+      res.render("category_form", {
+        title: "Update Category",
+        category: category,
+      });
+    } else {
+      Category.findByIdAndUpdate(req.params.id, category, {}, (err, updatedCategory) => {
+        if (err) return next(err);
+        res.redirect(updatedCategory.url);
+      });
+    };
+  }
+]

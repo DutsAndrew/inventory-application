@@ -26,7 +26,9 @@
           type="text" 
           placeholder="Beans, Roasts, Espresso, etc"
           name="name"
-          required >
+          required
+          value="<%= typeof(category) === 'undefined' ? '' : category.name %>"
+        >
       </div>
       <button class="btn, btn-primary" type="submit">
         Submit
