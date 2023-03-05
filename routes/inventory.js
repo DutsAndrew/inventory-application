@@ -3,6 +3,7 @@ const router = express.Router();
 
 const category_controller = require("../controllers/categoryController");
 const item_controller = require("../controllers/itemController");
+const admin_controller = require('../controllers/adminController');
 
 router.get('/', category_controller.index);
 
@@ -39,5 +40,10 @@ router.get('/category/:id', category_controller.category_detail);
 
 router.get('/item/admin/options', item_controller.item_admin_options_list);
 router.get('/category/admin/options', category_controller.category_admin_options_list);
+
+router.get('/admin/access', admin_controller.isAdmin);
+router.post('/admin/access', admin_controller.accessGranted);
+
+router.get('/admin/access/granted', admin_controller.admin_options);
 
 module.exports = router;

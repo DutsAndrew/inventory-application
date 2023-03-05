@@ -8,41 +8,36 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <a href="/inventory/admin/access/granted">
+    <a href="/inventory">
       <button class="return-to-main-btn" href="">
-        Return To Admin
+        Return To Main
       </button>
     </a>
 
     <h1><%= title %></h1>
 
     <form method="POST" action="">
+
       <div class="form-group">
-        <label for="name">
-          Category:
+        <label for="password">
+          Password:
         </label>
         <input 
           id="form-control" 
           type="text" 
-          placeholder="Beans, Roasts, Espresso, etc"
-          name="name"
+          placeholder="Good Luck!"
+          name="password"
           required
-          value="<%= typeof(category) === 'undefined' ? '' : category.name %>"
         >
       </div>
+
       <button class="btn, btn-primary" type="submit">
         Submit
       </button>
     </form>
 
-    <% if (typeof(errors) !== "undefined") { %>
-      <ul>
-        <% errors.forEach((error) => { %>
-          <li>
-            error.msg
-          </li>
-        <% }); %>
-      </ul>
+    <% if (typeof(error) !== 'undefined') { %>
+      <p><%= error %></p>
     <% }; %>
 
   </body>

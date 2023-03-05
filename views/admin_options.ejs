@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/inventory">
+      <button class="return-to-main-btn" href="">
+        Return To Main
+      </button>
+    </a>
+
+    <h1><%= title %></h1>
+    <h2><%= welcomeMessage %></h2>
+
+    <h4>
+      Admin Options:
+    </h4>
+    <ul>
+      <a href="/inventory/category/create">
+        <li>
+          Create Category
+        </li>
+      </a>
+
+      <a href="/inventory/category/admin/options">
+        <li>
+          Delete Category
+        </li>
+      </a>
+
+      <a href="/inventory/category/admin/options">
+        <li>
+          Update Category
+        </li>
+      </a>
+
+      <a href="/inventory/item/create">
+        <li>
+          Create Item
+        </li>
+      </a>
+
+      <a href="/inventory/item/admin/options">
+        <li>
+          Delete Item
+        </li>
+      </a>
+
+      <a href="/inventory/item/admin/options">
+        <li>
+          Update Item
+        </li>
+      </a>
+    </ul>
+
+  </body>
+</html>

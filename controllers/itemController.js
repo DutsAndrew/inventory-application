@@ -3,7 +3,6 @@ const Item = require("../models/item");
 const async = require("async");
 const { body, validationResult } = require('express-validator');
 const multer = require('multer');
-const formidable = require('formidable');
 const upload = multer({ dest: './public/data/uploads/' });
 
 exports.item_list = (req, res, next) => {
@@ -209,6 +208,8 @@ exports.item_update_get = (req, res, next) => {
 
 exports.item_update_post = [
 
+  upload.single('item_image'),
+
   // convert categories to an array
   (req, rex, next) => {
     if (!Array.isArray(req.body.category)) {
@@ -248,6 +249,7 @@ exports.item_update_post = [
             quantity: req.body.quantity,
             cost: req.body.cost,
             category: typeof req.body.category === 'undefined' ? [] : req.body.category,
+            image: req.file.filename,
             _id: req.params.id,
           });
 
