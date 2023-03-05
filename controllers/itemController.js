@@ -2,6 +2,9 @@ const Category = require("../models/category");
 const Item = require("../models/item");
 const async = require("async");
 const { body, validationResult } = require('express-validator');
+const multer = require('multer');
+const formidable = require('formidable');
+const upload = multer({ dest: './public/data/uploads/' });
 
 exports.item_list = (req, res, next) => {
   Item.find()
@@ -71,6 +74,8 @@ exports.item_create_get = (req, res) => {
 
 exports.item_create_post = [
 
+  upload.single('item_image'),
+
   // Convert the category to an array.
   (req, res, next) => {
     if (!Array.isArray(req.body.category)) {
@@ -99,6 +104,8 @@ exports.item_create_post = [
     .escape(),
   body("category.*")
     .escape(),
+  body("item_image")
+    .escape(),
 
   (req, res, next) => {
     const errors = validationResult(req),
@@ -108,6 +115,7 @@ exports.item_create_post = [
             quantity: req.body.quantity,
             cost: req.body.cost,
             category: req.body.category,
+            image: req.file.filename,
           });
     
     if (!errors.isEmpty()) {

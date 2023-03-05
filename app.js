@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/inventory', inventoryRouter);
+app.use('/images/', express.static('./public/data/uploads/'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

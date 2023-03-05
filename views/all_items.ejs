@@ -19,6 +19,9 @@
             <h2>
               <%= item.name %>
             </h2>
+            <% if (item.image) { %>
+              <img src="<%= item.imageURL %>">
+            <% }; %>
             <div class="item-details-container">
               <p>
                 $<%= item.cost %>
