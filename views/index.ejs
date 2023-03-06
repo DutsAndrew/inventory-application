@@ -5,49 +5,51 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <h2>Here is the current Inventory Data</h2>
-    <dt>
-      <h3>
-        Categories:
-      </h3>
-      <p>
-        <%= data.category_count %>
-      </p>
-      <h3>
-        Different Items in Inventory:
-      </h3>
-      <p>
-        <%= data.item_count %>
-      </p>
-      <h4>
-        Pick a Category to View:
-      </h4>
-      <ul>
+    <h1 class="title-header"><%= title %></h1>
+
+    <div class="category-container">
+      <ul class="category-list">
         <% if (categories) { %>
           <% categories.forEach((category) => { %>
-            <li>
+            <li class="category-item">
               <a href="<%= category.url %>"><%= category.name %></a>
             </li>
           <% }); %>
         <% }; %>
       </ul>
+
       <a href="/inventory/items">
-        <h5>
+        <h5 class="view-all-items-text">
           View All Items in Inventory
         </h5>
       </a>
-    </dt>
+    </div>
 
-    <h4>
-      Admin Options:
-    </h4>
-   
-    <a href="/inventory/admin/access">
-      <button>
-        Admin Access
-      </button>
-    </a>
+    <div class="inventory-data-container">
+      <dt class="home-info-container">
+        <h2 class="current-inventory-header">Current Inventory</h2>
+        <p>
+          <strong> Categories:</strong> <%= data.category_count %>
+        </p>
+  
+        <p>
+          <strong>Different Items in Inventory:</strong>  <%= data.item_count %>
+        </p>
+  
+      </dt>
+  
+      <div class="admin-options-container">
+        <h4 class="admin-options-text">
+          Admin Options:
+        </h4>
+       
+        <a href="/inventory/admin/access">
+          <button>
+            Admin Access
+          </button>
+        </a>
+      </div>
+    </div>
     
   </body>
 </html>
