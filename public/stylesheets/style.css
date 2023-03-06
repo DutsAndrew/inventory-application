@@ -50,6 +50,11 @@ textarea {
   height: 100%;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .checkboxes-container {
   display: flex;
   flex-flow: row nowrap;
@@ -83,12 +88,6 @@ textarea {
 .create-item-button {
   margin: 0;
   margin-left: 40%;
-}
-
-.admin-item-list-button-container {
-  margin: 0;
-  margin-bottom: 2vh;
-  margin-left: 30%;
 }
 
 a {
@@ -246,21 +245,47 @@ button {
 
 .category-container {
   width: 95vw;
+  display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #6F323C;
 }
 
-.item-container {
-  width: 80vw;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  border-bottom: 1px solid #6F323C;
-}
-
 .button-link {
   text-decoration: none;
+}
+
+/* VIEW ALL ITEMS */
+
+.view-item-link-text {
+  margin: 0;
+  margin-bottom: 1vh;
+}
+
+.items-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1vh;
+  width: 90vw;
+  height: auto;
+}
+
+.item-container {
+  width: 25vw;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid #6F323C;
+  padding: 1vh;
+}
+
+.admin-item-list-button-container {
+  margin: 0;
+  margin-bottom: 2vh;
+  margin-left: 5vw;
 }

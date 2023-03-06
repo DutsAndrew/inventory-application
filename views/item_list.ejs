@@ -27,7 +27,7 @@
                 $<%= item.cost %>
               </p>
               <p>
-                <em><%= item.description %></em>
+                <em><%= item.description.length < 300 ? item.description : item.description.slice(0, 300) + '...' %></em>
               </p>
               <p>
                 <strong>Quantity:</strong> <%= item.quantity %>
@@ -37,7 +37,7 @@
               View Item
             </a>
           </div>
-          <hr>
+
         <% }); %>
       <% } else { %>
         <p>

@@ -27,7 +27,7 @@
                 $<%= item.cost %>
               </p>
               <p>
-                <em><%= item.description %></em>
+                <em><%= item.description.length < 300 ? item.description : item.description.slice(0, 300) + '...' %></em>
               </p>
               <p>
                 <strong>Quantity:</strong> <%= item.quantity %>
@@ -36,11 +36,14 @@
                 <em><%= item.category.name %></em>
               </p>
             </div>
-            <a href="<%= item.url %>">
+            <a 
+              class="view-item-link-text"
+              href="<%= item.url %>"
+            >
               View Item
             </a>
           </div>
-          <hr>
+  
         <% }); %>
       <% } else { %>
         <p>

@@ -16,47 +16,50 @@
       Admin access granted
     </h2>
 
-    <% if (items) { %>
-      <% items.forEach((item) => { %>
-        <div class="item-container">
-          <h2>
-            <%= item.name %>
-          </h2>
-          <ul>
-            <li>
-              <strong>Description: </strong><%= item.description %>
-            </li>
-            <li>
-              <strong>Amount: </strong><%= item.amount %>
-            </li>
-            <li>
-              <strong>Quantity: </strong><%= item.quantity %>
-            </li>
-            <li>
-              <strong>Price: </strong><%= item.price %>
-            </li>
-          </ul>
-          
-          <div class="admin-item-list-button-container">
-            <a 
-              class="button-link"
-              href="<%= item.url + '/update' %>"
-            >
-              <button>Update</button>
-            </a>
-            <a 
-              class="button-link"
-              href="<%= item.url + '/delete' %>"
-            >
-              <button>Delete</button>
-            </a>
+    <div class="items-container">
+      <% if (items) { %>
+        <% items.forEach((item) => { %>
+          <div class="item-container">
+            <h2>
+              <%= item.name %>
+            </h2>
+            <ul>
+              <li>
+                <strong>Description: </strong><%= item.description.length < 300 ? item.description : item.description.slice(0, 300) + '...' %>
+              </li>
+              <li>
+                <strong>Amount: </strong><%= item.amount %>
+              </li>
+              <li>
+                <strong>Quantity: </strong><%= item.quantity %>
+              </li>
+              <li>
+                <strong>Price: </strong><%= item.price %>
+              </li>
+            </ul>
+            
+            <div class="admin-item-list-button-container">
+              <a 
+                class="button-link"
+                href="<%= item.url + '/update' %>"
+              >
+                <button>Update</button>
+              </a>
+              <a 
+                class="button-link"
+                href="<%= item.url + '/delete' %>"
+              >
+                <button>Delete</button>
+              </a>
+            </div>
           </div>
-        </div>
-      <% }); %>
-    <% } else { %>
-      <p>
-        There are no categories of this category type :(
-      </p>
-    <% }; %>
+        <% }); %>
+      <% } else { %>
+        <p>
+          There are no categories of this category type :(
+        </p>
+      <% }; %>
+    </div>
+   
   </body>
 </html>
