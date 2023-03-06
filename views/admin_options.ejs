@@ -14,49 +14,69 @@
       </button>
     </a>
 
-    <h1><%= title %></h1>
-    <h2><%= welcomeMessage %></h2>
+    <h1 class="admin-options-title-text"><%= title %></h1>
+    <h2 class="admin-options-welcome-text"><%= welcomeMessage %></h2>
 
-    <h4>
-      Admin Options:
-    </h4>
-    <ul>
-      <a href="/inventory/category/create">
-        <li>
-          Create Category
-        </li>
-      </a>
-
-      <a href="/inventory/category/admin/options">
-        <li>
-          Delete Category
-        </li>
-      </a>
-
-      <a href="/inventory/category/admin/options">
-        <li>
-          Update Category
-        </li>
-      </a>
-
-      <a href="/inventory/item/create">
-        <li>
-          Create Item
-        </li>
-      </a>
-
-      <a href="/inventory/item/admin/options">
-        <li>
-          Delete Item
-        </li>
-      </a>
-
-      <a href="/inventory/item/admin/options">
-        <li>
-          Update Item
-        </li>
-      </a>
-    </ul>
+    <div class="admin-options-selection-container">
+      <h4 class="admin-options-header-text">
+        Admin Options:
+      </h4>
+      <ul class="admin-options-list">
+        <a 
+          class="admin-options-item"
+          href="/inventory/category/create"
+        >
+          <li>
+            Create Category
+          </li>
+        </a>
+  
+        <a 
+          class="admin-options-item"
+          href="/inventory/category/admin/options"
+        >
+          <li>
+            Delete Category
+          </li>
+        </a>
+  
+        <a 
+          class="admin-options-item"
+          href="/inventory/category/admin/options"
+        >
+          <li>
+            Update Category
+          </li>
+        </a>
+  
+        <a 
+          class="admin-options-item"
+          href="/inventory/item/create"
+        >
+          <li>
+            Create Item
+          </li>
+        </a>
+  
+        <a 
+          class="admin-options-item"
+          href="/inventory/item/admin/options"
+        >
+          <li>
+            Delete Item
+          </li>
+        </a>
+  
+        <a 
+          class="admin-options-item"
+          href="/inventory/item/admin/options"
+        >
+          <li>
+            Update Item
+          </li>
+        </a>
+      </ul>
+    </div>
 
   </body>
 </html>

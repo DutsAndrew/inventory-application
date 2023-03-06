@@ -34,10 +34,6 @@ a:hover {
   color: white;
 }
 
-button {
-  margin-top: 2vh;
-}
-
 button:hover {
   cursor: pointer;
 }
@@ -54,7 +50,8 @@ li {
 button {
   color: #BA9B8D;
   background-color: #6F323C;
-  min-width: 20vw;
+  margin-top: 2vh;
+  min-width: 15vw;
   max-width: 30vw;
   min-height: 3vh;
   max-height: 5vh;
@@ -134,9 +131,39 @@ button {
   min-width: 80vw;
   min-height: 30vh;
   margin: 0;
-  gap: 5vw;
+  gap: 2vw;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+
+/* ADMIN ACCESS OPTIONS PAGE */
+
+.admin-options-welcome-text {
+  margin: 0;
+  margin-bottom: 5vh;
+}
+
+.admin-options-header-text {
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 5vh;
+}
+
+.admin-options-selection-container {
+  border: 1px solid #6F323C;
+  padding: 5vw;
+}
+
+.admin-options-list {
+  min-width: 20vw;
+  min-height: 20vh;
+  gap: 1vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.admin-options-item {
+  font-size: 1.25em;
 }
