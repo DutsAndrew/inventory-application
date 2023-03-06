@@ -10,13 +10,11 @@
         Return To Admin Page
       </button>
     </a>
-    <h1><%= title %></h1>
+    <h1 class="admin-category-title"><%= title %></h1>
     
-    <h2>
+    <h2 class="admin-category-access-granted-text">
       Admin access granted
     </h2>
-
-    <hr>
 
     <% if (categories) { %>
       <% categories.forEach((category) => { %>
@@ -24,13 +22,15 @@
           <h2>
             <%= category.name %>
           </h2>
-          <a href="<%= category.url + '/update' %>">
-            <button>Update</button>
-          </a>
-          <a href="<%= category.url + '/delete' %>">
-            <button>Delete</button>
-          </a>
-        <hr>
+          <div class="category-button-container">
+            <a class="button-link" href="<%= category.url + '/update' %>">
+              <button>Update</button>
+            </a>
+            <a class="button-link" href="<%= category.url + '/delete' %>">
+              <button>Delete</button>
+            </a>
+          </div>
+        </div>
       <% }); %>
     <% } else { %>
       <p>

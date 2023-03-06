@@ -12,15 +12,13 @@
     </a>
     <h1><%= title %></h1>
     
-    <h2>
+    <h2 class="admin-item-access-granted-text">
       Admin access granted
     </h2>
 
-    <hr>
-
     <% if (items) { %>
       <% items.forEach((item) => { %>
-        <div class="category-container">
+        <div class="item-container">
           <h2>
             <%= item.name %>
           </h2>
@@ -38,13 +36,22 @@
               <strong>Price: </strong><%= item.price %>
             </li>
           </ul>
-          <a href="<%= item.url + '/update' %>">
-            <button>Update</button>
-          </a>
-          <a href="<%= item.url + '/delete' %>">
-            <button>Delete</button>
-          </a>
-        <hr>
+          
+          <div class="admin-item-list-button-container">
+            <a 
+              class="button-link"
+              href="<%= item.url + '/update' %>"
+            >
+              <button>Update</button>
+            </a>
+            <a 
+              class="button-link"
+              href="<%= item.url + '/delete' %>"
+            >
+              <button>Delete</button>
+            </a>
+          </div>
+        </div>
       <% }); %>
     <% } else { %>
       <p>

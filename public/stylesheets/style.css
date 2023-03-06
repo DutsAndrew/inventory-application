@@ -19,10 +19,76 @@ form {
   align-items: center;
   min-width: 50vw;
   min-height: 50vh;
+  gap: 1vh;
+  border: 1px solid #6F323C;
+  padding: 2vh;
+}
+
+.form-group {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1em;
+  gap: 0.5vh;
+  min-width: 50vw;
+  min-height: 5vh;
 }
 
 input, label {
   font-size: 1.5em;
+  width: 100%;
+  height: 100%;
+}
+
+label {
+  font-weight: bolder;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.checkboxes-container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 80vw;
+  max-height: 30vh;
+  margin: 0;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.checkbox-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.checkbox-create-item {
+  min-width: 2.5vw;
+  min-height: 2.5vh;
+}
+
+.category-label {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-item-button {
+  margin: 0;
+  margin-left: 40%;
+}
+
+.admin-item-list-button-container {
+  margin: 0;
+  margin-bottom: 2vh;
+  margin-left: 30%;
 }
 
 a {
@@ -82,7 +148,7 @@ button {
   font-size: 1.25em;
 }
 
-.category-container {
+.categories-container {
   width: 100vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
@@ -91,7 +157,7 @@ button {
   align-items: center;
 }
 
-.category-list {
+.categories-list {
   width: 100%;
   height: 100%;
   display: flex;
@@ -166,4 +232,35 @@ button {
 
 .admin-options-item {
   font-size: 1.25em;
+}
+
+/* CATEGORY ADMIN ACCESS */
+
+.admin-category-access-granted-text, .admin-item-access-granted-text {
+  margin: 0;
+}
+
+.admin-item-access-granted-text {
+  margin-bottom: 5vh;
+}
+
+.category-container {
+  width: 95vw;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #6F323C;
+}
+
+.item-container {
+  width: 80vw;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid #6F323C;
+}
+
+.button-link {
+  text-decoration: none;
 }
