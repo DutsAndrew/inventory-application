@@ -4,3 +4,5 @@ Inventory Application is a lightweight and simple Node Express application that 
 
 Tools:
 JavaScript, Node.js, Express, MongoDB, and other libraries for production and security purposes.
+
+Live Link: https://inventory-app-ad.up.railway.app/inventory
