@@ -28,7 +28,7 @@ exports.accessGranted = [
   ];
 
 exports.admin_options = (req, res, next) => {
-  res.render("Admin_options", {
+  res.render("admin_options", {
     title: "Access Granted",
     welcomeMessage: "Welcome Admin",
   });
