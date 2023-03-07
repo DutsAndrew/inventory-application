@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const compression = require('compression');
 const helmet = require('helmet');
+const favicon = require('serve-favicon')
 
 // db hookups w/ MongoDB and Mongoose
 const mongoose = require("mongoose");
@@ -29,6 +30,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
