@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-console.log('This script populates some test items, itemInstances, and categories to your database. Specified database as argument - e.g.: node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority"');
+console.log('This script populates some test items and categories to your database. Specified database as argument - e.g.: node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority"');
 
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
@@ -7,7 +7,6 @@ const userArgs = process.argv.slice(2);
 const async = require('async')
 const Item = require('./models/item');
 const Category = require('./models/category');
-const ItemInstance = require('./models/itemInstance');
 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false); // Prepare for Mongoose 7
@@ -21,7 +20,6 @@ async function main() {
 
 const items = []
 const categories = []
-const itemInstances = []
 
 function categoryCreate(name, cb) {
   const category = new Category({ name: name });
@@ -120,8 +118,7 @@ function(err, results) {
         console.log('FINAL ERR: '+err);
     }
     else {
-        console.log('ItemInstances: '+itemInstances);
-        
+      //        
     }
     // All done, disconnect from database
     mongoose.connection.close();
