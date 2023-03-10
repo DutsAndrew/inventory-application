@@ -5,13 +5,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const compression = require('compression');
 const helmet = require('helmet');
-const favicon = require('serve-favicon')
+const favicon = require('serve-favicon');
+require('dotenv').config();
 
 // db hookups w/ MongoDB and Mongoose
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
-const dev_db_url = 'mongodb+srv://admin:admin@cluster0.0bccweu.mongodb.net/local_inventory?retryWrites=true&w=majority';
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.MONGODB_URI || process.env.DEV_DB_URL;
 
 async function main() {
   await mongoose.connect(mongoDB);
